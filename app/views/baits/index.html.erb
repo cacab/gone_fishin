@@ -7,6 +7,8 @@
       action: "input->form#submit"
     }) do |f| %>
     
+
+    
     <div>
       <%= f.search_field :name, placeholder: 'Name...',
             value: params[:name] %>
@@ -19,9 +21,6 @@
       <%= f.select :sort,
             [["By Name", "name"], ["By Popularity", "tackle_box_items_count"]],
             include_blank: "Sort By", selected: params[:sort] %>
-    </div>
-    <div>
-      <%= f.submit "Search" %>
     </div>
   <% end %>
 </div>

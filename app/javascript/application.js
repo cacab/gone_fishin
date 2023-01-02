@@ -3,6 +3,4 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
 
-Turbo.setProgressBarDelay(1)
-
-//Turbo.session.drive = false
+// Turbo.session.drive = false
