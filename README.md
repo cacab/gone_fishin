@@ -6,4 +6,5 @@ Created using the Hotwire For Rails Devs course from Pragmatic Studios
 
 ## To Run 
 
+`ruby bin/setup`
 `./bin/dev`
