@@ -1,24 +1,9 @@
-# README
+# Gone Fishin' 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<img width="1034" alt="Screenshot 2023-01-01 at 6 30 45 PM" src="https://user-images.githubusercontent.com/46205451/210188467-d55b6bbb-494e-47e7-943f-bc1677096d25.png">
 
-Things you may want to cover:
+Created using the Hotwire For Rails Devs course from Pragmatic Studios 
 
-* Ruby version
+## To Run 
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+`./bin/dev`
