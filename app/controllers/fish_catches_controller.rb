@@ -4,8 +4,9 @@ class FishCatchesController < ApplicationController
 
   def index
     @pagy, @fish_catches =
-      pagy(current_user.filter_catches(params),
-           items: params[:per_page] ||= 5)
+    pagy(current_user.filter_catches(params),
+      items: params[:per_page] ||= 5,
+      link_extra: 'data-turbo-action="advance"')
 
     @bait_names = Bait.pluck(:name)
     @species = FishCatch::SPECIES
@@ -19,7 +20,8 @@ class FishCatchesController < ApplicationController
 
   def update
     if @fish_catch.update(fish_catch_params)
-      redirect_to tackle_box_item_for_catch(@fish_catch)
+      @fish_catches = fish_catches_for_bait(@fish_catch.bait)
+      flash.now[:notice] = "Catch successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -35,6 +37,7 @@ class FishCatchesController < ApplicationController
           @new_catch = current_user.fish_catches.new(bait: @fish_catch.bait)
         end
         format.html { redirect_to tackle_box_item_for_catch(@fish_catch) }
+        flash.now[:notice] = "Catch created!"
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -45,6 +48,8 @@ class FishCatchesController < ApplicationController
     @fish_catch.destroy
 
     @fish_catches = fish_catches_for_bait(@fish_catch.bait)
+
+    flash.now[:notice] = "Catch successfully deleted."
   end
 
 private
